@@ -1,6 +1,6 @@
 # RecentNewsSkill 
 
-* simple alexa skill feed news use newsapi.org .
+* simple alexa skill feed news use [newsapi.org](https://newsapi.org/) .
 * based on ask-cli project.
 * no use account link, only use user session.
 
