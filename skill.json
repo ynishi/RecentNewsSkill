@@ -1,0 +1,48 @@
+{
+  "skillManifest": {
+    "publishingInformation": {
+      "locales": {
+        "ja-JP": {
+          "name": "RecentNewsSkill",
+          "summary": "最近のニュースのヘッドラインを聞けます",
+          "description": "このスキルは、newsapi.orgの提供する最近のニュースのヘッドラインを読み上げます。\nヘッドラインは、ビジネスやスポーツなどカテゴリーを指定して聞くことができます。読み上げたヘッドラインからキーワードを指定するとその記事の概要を聞くことができます。",
+          "examplePhrases": [
+             "アレクサ、最近のニュースを開いて",
+             "アレクサ、最近のニュースでビジネスのヘッドラインを教えて",
+             "アレクサ、○○の詳細を知りたい"
+          ],
+          "keywords": [
+            "ヘッドライン",
+            "シンプル",
+            "無料"
+          ]
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "1. 起動\n「アレクサ、最近のニュースを起動」=> ヘッドラインを読み上げること\n上記に際して、アカウント認証が不要なこと\n2. 機能\n「アレクサ、最近のニュースでビジネスのヘッドラインを教えて」 => ビジネスに関するヘッドラインを読み上げること\n「アレクサ、最近のニュースで○○（上記の読み上げから任意のキーワードを指定）の詳細を教えて」=> ヘッドラインにキーワードを含む記事の概要を読み上げること\n「アレクサ、最近のニュースのヘルプ」=>「ニュースのヘッドラインが聞けます。「アレクサ、最近のニュースでヘッドラインを教えて」と話してみてください」と答えること",
+      "distributionMode": "PUBLIC",
+      "category": "NEWS",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "sourceDir": "lambda/custom"
+        }
+      }
+    },
+    "manifestVersion": "1.0",
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "ja-JP": {
+          "privacyPolicyUrl": ""
+        }
+      },
+      "isExportCompliant": true,
+      "containsAds": false,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "最近のニュース",
+      "intents": [
+        {
+          "name": "GetHeadlineIntent",
+          "samples": [
+            "ヘッドラインを教えて",
+            "教えて",
+            "ヘッドラインが知りたい",
+            "ヘッドライン",
+            "タイトル",
+            "{Category} のヘッドラインを教えて",
+            "{Category} のニュース",
+            "{Category}",
+            "{Category} を知りたい",
+            "{Category} 流して",
+            "{Category} 教えて"
+          ],
+          "slots":[
+            {
+              "name": "Category",
+              "type": "LIST_OF_CATEGORIES"
+            }
+          ]
+        },
+        {
+          "name": "GetDetailIntent",
+          "samples":[
+            "{SearchWord}",
+            "{SearchWord} 詳細",
+            "{SearchWord} の 詳細を教えて",
+            "{SearchWord} 詳しく教えて",
+            "{SearchWord} 詳しく知りたい",
+            "{SearchWord} 詳細を知りたい"
+          ],
+          "slots":[
+            {
+              "name": "SearchWord",
+              "type": "AMAZON.City"
+            }
+          ]
+        },
+        {
+          "name": "AMAZON.HelpIntent"
+        },
+        {
+          "name": "AMAZON.StopIntent"
+        },
+        {
+          "name": "AMAZON.CancelIntent"
+        }
+      ],
+      "types": [
+        {
+          "name": "LIST_OF_CATEGORIES",
+          "values": [
+            {
+              "name": {
+                "value": "ビジネス"
+              }
+            },
+            {
+              "name": {
+                "value": "エンターテインメント"
+              }
+            },
+            {
+              "name": {
+                "value": "総合"
+              }
+            },
+            {
+              "name": {
+                "value": "健康"
+              }
+            },
+            {
+              "name": {
+                "value": "サイエンス"
+              }
+            },
+            {
+              "name": {
+                "value": "スポーツ"
+              }
+            },
+            {
+              "name": {
+                "value": "テクノロジー"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
