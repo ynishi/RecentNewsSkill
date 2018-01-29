@@ -21,7 +21,8 @@ exports.handler = function(event, context) {
 
 var handlers = {
     'LaunchRequest': function () {
-        this.emit('SayHeadline');
+        this.response.speak("ようこそリセニューへ。「アレクサ、リセニューでヘッドラインを教えて」と話してみてください");
+        this.emit(':responseReady');
     },
     'GetHeadlineIntent': function () {
         this.emit('SayHeadline');
@@ -85,7 +86,7 @@ var handlers = {
                     }
                     var escaped = ssml_escape(str);
                     self.attributes[kLastHeadline] = acc;
-                    self.response.speak(response.articles.length+'件あります。'+escaped)
+                    self.response.speak(response.articles.length+'件あります。'+escaped+'です。')
                          .cardRenderer('ヘッドライン', str);
                     self.emit(':responseReady');
                 })
@@ -106,11 +107,15 @@ var handlers = {
                 self.emit(':responseReady');
             } else {
                   var searchWord = self.event.request.intent.slots.SearchWord.value;
+                  var rmWords = ['で', 'を', 'に', 'の', 'して', '開いて', '起動して', '実行して', 'スタートして', '呼び出して', '、',',','。','.',' '];
+                  for (var i = 0; i < rmWords.length; i++) {
+                    searchWord = searchWord.replace(rmWords[i],'');
+                  }
                   self.attributes['searchWord'] = searchWord;
                   var hl = self.attributes[kLastHeadline];
                   for (var i = 0; i < hl.length; i++) {
                     if (hl[i].title.search(searchWord) > -1) {
-                      self.response.speak(hl[i].desc)
+                      self.response.speak(hl[i].desc+'です。')
                          .cardRenderer('詳細情報', hl[i].desc);
                       self.emit(':responseReady');
                       return;
@@ -130,7 +135,7 @@ var handlers = {
         this.emit(':responseReady');
     },
     'AMAZON.HelpIntent' : function() {
-        this.response.speak("ニュースのヘッドラインが聞けます。「アレクサ、最近のニュースでヘッドラインを教えて」と話してみてください");
+        this.response.speak("ニュースのヘッドラインが聞けます。「アレクサ、リセニューでヘッドラインを教えて」と話してみてください");
         this.emit(':responseReady');
     },
     'AMAZON.CancelIntent' : function() {
@@ -138,6 +143,6 @@ var handlers = {
         this.emit(':responseReady');
     },
     'Unhandled' : function() {
-        this.response.speak("すいません、よくわかりません。「アレクサ、最近のニュースでヘッドラインを教えて」と話してみてください");
+        this.response.speak("すいません、よくわかりません。「アレクサ、リセニューでヘッドラインを教えて」と話してみてください");
     }
 };

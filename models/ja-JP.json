@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "最近のニュース",
+      "invocationName": "リセニュー",
       "intents": [
         {
           "name": "GetHeadlineIntent",
@@ -15,8 +15,8 @@
             "{Category} のニュース",
             "{Category}",
             "{Category} を知りたい",
-            "{Category} 流して",
-            "{Category} 教えて"
+            "{Category} を流して",
+            "{Category} を教えて"
           ],
           "slots":[
             {
@@ -28,7 +28,9 @@
         {
           "name": "GetDetailIntent",
           "samples":[
-            "{SearchWord}",
+            "{SearchWord} 詳しく",
+            "{SearchWord} を詳しく",
+            "{SearchWord} の詳細",
             "{SearchWord} 詳細",
             "{SearchWord} の 詳細を教えて",
             "{SearchWord} 詳しく教えて",
